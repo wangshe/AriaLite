@@ -148,7 +148,7 @@ struct SettingsWindowView: View {
                 toggleRow(L10n.tr("关闭主窗口后继续运行"), isOn: $store.settings.keepRunningAfterMainWindowClose)
                 toggleRow(L10n.tr("隐藏程序坞图标"), isOn: hideDockIconBinding)
                     .disabled(!canRunInMenuBar)
-                Text(L10n.tr("开启后不出现在 Dock，主窗口与设置仍可打开。"))
+                Text(L10n.tr("开启后不出现在程序坞，主窗口与设置仍可打开。"))
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
