@@ -290,7 +290,7 @@ struct SettingsWindowView: View {
                         .frame(width: 90)
                 }
 
-                settingsRow("RPC Secret", detail: nil) {
+                settingsRow(L10n.tr("远程协议密码"), detail: nil) {
                     TextField("", text: rpcSecretBinding, prompt: Text(L10n.tr("空")))
                         .labelsHidden()
                         .multilineTextAlignment(.trailing)
