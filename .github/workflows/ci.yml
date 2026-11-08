@@ -1,6 +1,8 @@
 name: Verify and Release
 
 on:
+  pull_request:
+  push:
     branches: [main]
     tags: ['v*']
   workflow_dispatch:
