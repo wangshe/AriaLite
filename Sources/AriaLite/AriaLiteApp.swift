@@ -8,7 +8,7 @@ struct AriaLiteApp: App {
     @StateObject private var updater = SoftwareUpdater(configuration: .ariaLite)
 
     var body: some Scene {
-        Window("AriaLite", id: "main") {
+        Window(L10n.tr("下载器"), id: "main") {
             MainWindowView()
                 .environmentObject(store)
                 .frame(width: 600, height: 400)
