@@ -173,7 +173,7 @@ struct ContentAreaView: View {
             case .starting:
                 ConnectionStateView(
                     title: L10n.tr("正在连接"),
-                    message: L10n.tr("正在启动 aria2-next 引擎"),
+                    message: L10n.tr("正在启动下载引擎"),
                     symbol: "hourglass",
                     primaryActionTitle: nil,
                     secondaryActionTitle: nil
