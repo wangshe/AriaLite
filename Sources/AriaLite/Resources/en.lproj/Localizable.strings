@@ -136,6 +136,7 @@
 "正在下载 {{0}}…" = "Downloading {{0}}…";
 "正在停止本地引擎以应用新的远程协议设置" = "Stopping the local aria2 engine to apply the new RPC settings";
 "正在启动下载引擎" = "Starting the aria2 engine";
+"正在启动 aria2-next 引擎" = "Starting the aria2-next engine";
 "正在安装并重新启动…" = "Installing and restarting…";
 "正在检查更新…" = "Checking for updates…";
 "正在连接" = "Connecting";
