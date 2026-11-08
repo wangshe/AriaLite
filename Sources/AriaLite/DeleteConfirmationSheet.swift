@@ -10,7 +10,7 @@ struct DeleteConfirmationSheet: View {
             Text(L10n.tr("删除任务？"))
                 .font(.title2.bold())
 
-            Text(L10n.tr("这会从 AriaLite 中移除选中的任务。已下载的文件默认会保留在磁盘上。"))
+            Text(L10n.tr("这会从下载器中移除选中的任务。已下载的文件默认会保留在磁盘上。"))
                 .foregroundStyle(.secondary)
 
             let exactTargets = store.selectedTask.map { store.deleteFileTargets(for: $0) } ?? []
