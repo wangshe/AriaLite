@@ -60,7 +60,7 @@ final class AppStore: ObservableObject {
         LoginItemService.removeLegacyLaunchAgent()
         if settings.autoConnectEngine {
             connectionState = .starting
-            engineMessage = L10n.tr("正在连接 aria2 RPC")
+            engineMessage = L10n.tr("正在连接远程协议")
         }
         notificationService.requestAuthorization()
 
@@ -247,7 +247,7 @@ final class AppStore: ObservableObject {
     }
 
     func restartEngineSavingSession() async {
-        engineMessage = L10n.tr("正在重启 aria2 引擎")
+        engineMessage = L10n.tr("正在重启下载引擎")
         await stopEngineSavingSession()
         await retryEngineConnection()
         if connectionState == .connected {
@@ -337,8 +337,8 @@ final class AppStore: ObservableObject {
         settings.rpcHost = normalizedHost
         rpcPortNeedsRestart = true
         engineMessage = AppSettings.isLocalRPCHost(normalizedHost)
-            ? L10n.tr("RPC 地址已保存，正在重启引擎")
-            : L10n.tr("RPC 地址已保存，正在重新连接")
+            ? L10n.tr("远程协议地址已保存，正在重启引擎")
+            : L10n.tr("远程协议地址已保存，正在重新连接")
         scheduleAutomaticEngineRestart()
     }
 
@@ -347,7 +347,7 @@ final class AppStore: ObservableObject {
         guard settings.rpcPort != normalizedPort else { return }
         settings.rpcPort = normalizedPort
         rpcPortNeedsRestart = true
-        engineMessage = L10n.tr("RPC 端口已保存，正在重启引擎")
+        engineMessage = L10n.tr("远程协议端口已保存，正在重启引擎")
         scheduleAutomaticEngineRestart()
     }
 
@@ -356,7 +356,7 @@ final class AppStore: ObservableObject {
         guard rpcSecret != normalizedSecret else { return }
         rpcSecret = normalizedSecret
         LocalSecretStore.save(normalizedSecret)
-        engineMessage = L10n.tr("RPC Secret 已保存，正在重启引擎")
+        engineMessage = L10n.tr("远程协议密码已保存，正在重启引擎")
         if restartEngine {
             scheduleAutomaticEngineRestart()
         }
@@ -546,7 +546,7 @@ final class AppStore: ObservableObject {
                 "max-overall-upload-limit": speedLimitOption(settings.uploadSpeedLimit) ?? "0"
             ])
         } catch {
-            engineMessage = L10n.tr("设置已保存，但同步到 aria2 失败：\(error.localizedDescription)")
+            engineMessage = L10n.tr("设置已保存，但同步到引擎失败：\(error.localizedDescription)")
         }
     }
 
@@ -711,7 +711,7 @@ final class AppStore: ObservableObject {
                 return try await waitForEngine(client: client, requireManagedProcess: true)
             }
 
-            engineMessage = L10n.tr("正在停止本地 aria2 引擎以应用新的 RPC 设置")
+            engineMessage = L10n.tr("正在停止本地引擎以应用新的远程协议设置")
             if AppSettings.isLocalRPCHost(activeRPCHost ?? "127.0.0.1") {
                 let oldClient = makeClient()
                 _ = try? await oldClient.saveSession()
@@ -727,12 +727,12 @@ final class AppStore: ObservableObject {
         activeRPCToken = rpcSecret
 
         if !isLocal {
-            engineMessage = L10n.tr("正在连接远程 aria2 RPC（\(host):\(settings.rpcPort)）")
+            engineMessage = L10n.tr("正在连接远程协议（\(host):\(settings.rpcPort)）")
             return try await waitForEngine(client: desiredClient, requireManagedProcess: false)
         }
 
         if let _ = try? await desiredClient.getVersion() {
-            engineMessage = L10n.tr("正在重启旧 aria2 引擎以应用新设置")
+            engineMessage = L10n.tr("正在重启旧下载引擎以应用新设置")
             _ = try? await desiredClient.saveSession()
             _ = try await desiredClient.forceShutdown()
             try await waitForExternalEngineToStop(client: desiredClient)
@@ -745,7 +745,7 @@ final class AppStore: ObservableObject {
         }
 
         let launchClient = makeClient()
-        engineMessage = L10n.tr("正在启动 aria2 引擎")
+        engineMessage = L10n.tr("正在启动下载引擎")
         try engineManager.startIfNeeded(settings: settings, rpcSecret: rpcSecret)
         return try await waitForEngine(client: launchClient, requireManagedProcess: true)
     }
@@ -765,7 +765,7 @@ final class AppStore: ObservableObject {
         }
 
         if requireManagedProcess, engineManager.isRunning {
-            engineMessage = L10n.tr("aria2 RPC 无响应，正在重启本地引擎")
+            engineMessage = L10n.tr("远程协议无响应，正在重启本地引擎")
             _ = try? await client.saveSession()
             _ = try? await client.forceShutdown()
             try? await waitForExternalEngineToStop(client: client)
@@ -805,7 +805,7 @@ final class AppStore: ObservableObject {
             try await Task.sleep(for: .milliseconds(250))
         }
 
-        throw EngineManagerError.rpcUnavailable(L10n.tr("旧 aria2 引擎未释放 RPC 端口 \(settings.rpcPort)。"))
+        throw EngineManagerError.rpcUnavailable(L10n.tr("旧引擎未释放远程协议端口 \(settings.rpcPort)。"))
     }
 
     private func waitForManagedEngineToStop() async throws {
@@ -817,7 +817,7 @@ final class AppStore: ObservableObject {
         }
 
         let port = activeRPCPort ?? settings.rpcPort
-        throw EngineManagerError.rpcUnavailable(L10n.tr("旧 aria2 引擎进程未完全退出，RPC 端口 \(port) 尚未释放。"))
+        throw EngineManagerError.rpcUnavailable(L10n.tr("旧引擎进程未完全退出，远程协议端口 \(port) 尚未释放。"))
     }
 
     private func handleRPCError(_ error: Error) {
