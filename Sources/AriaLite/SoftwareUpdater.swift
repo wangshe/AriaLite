@@ -14,7 +14,7 @@ final class SoftwareUpdater: ObservableObject {
         static let ariaLite = Configuration(
             appName: "AriaLite",
             bundleIdentifier: "com.arialite.desktop",
-            repository: "FateLightX/AriaLite",
+            repository: "wangshe/AriaLite",
             fallbackVersion: "0.2.28"
         )
     }
