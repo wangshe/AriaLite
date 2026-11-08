@@ -115,7 +115,7 @@
 "无法连接 {{0}}:{{1}}" = "Unable to connect to {{0}}:{{1}}";
 "旧 aria2 引擎未释放 RPC 端口 {{0}}。" = "The previous aria2 engine did not release RPC port {{0}}.";
 "旧 aria2 引擎进程未完全退出，RPC 端口 {{0}} 尚未释放。" = "The previous aria2 process has not fully exited, and RPC port {{0}} is still in use.";
-"显示 AriaLite" = "Show AriaLite";
+"显示下载器" = "Show AriaLite";
 "暂停" = "Pause";
 "暂停任务" = "Pause Task";
 "暂停全部" = "Pause All";
@@ -181,7 +181,7 @@
 "进度" = "Progress";
 "进度：{{0}}%" = "Progress: {{0}}%";
 "连接失败" = "Connection Failed";
-"退出 AriaLite" = "Quit AriaLite";
+"退出下载器" = "Quit AriaLite";
 "选择" = "Choose";
 "选择..." = "Choose...";
 "通用" = "General";
