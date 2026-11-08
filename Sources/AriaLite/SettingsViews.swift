@@ -270,8 +270,8 @@ struct SettingsWindowView: View {
             }
 
         case .engine:
-            settingsPanel(title: "RPC", symbol: "network") {
-                settingsRow(L10n.tr("RPC 地址"), detail: L10n.tr("本机 127.0.0.1，或远程主机")) {
+            settingsPanel(title: L10n.tr("远程协议"), symbol: "network") {
+                settingsRow(L10n.tr("远程协议地址"), detail: L10n.tr("本机 127.0.0.1，或远程主机")) {
                     TextField("", text: $rpcHostDraft, prompt: Text("127.0.0.1"))
                         .labelsHidden()
                         .multilineTextAlignment(.trailing)
@@ -282,7 +282,7 @@ struct SettingsWindowView: View {
                         }
                 }
 
-                settingsRow(L10n.tr("RPC 端口"), detail: nil) {
+                settingsRow(L10n.tr("远程协议端口"), detail: nil) {
                     TextField("", text: rpcPortBinding, prompt: Text("6800"))
                         .labelsHidden()
                         .multilineTextAlignment(.trailing)
@@ -304,7 +304,7 @@ struct SettingsWindowView: View {
                             .font(.body)
 
                         if store.rpcPortNeedsRestart {
-                            Text(L10n.tr("RPC 修改后需重连"))
+                            Text(L10n.tr("远程协议修改后需重连"))
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
@@ -361,7 +361,7 @@ struct SettingsWindowView: View {
                         .foregroundStyle(.secondary)
                 }
 
-                settingsRow(L10n.tr("Aria2 Next 版本"), detail: nil) {
+                settingsRow(L10n.tr("引擎版本"), detail: nil) {
                     Text("3.1.0")
                         .foregroundStyle(.secondary)
                 }
