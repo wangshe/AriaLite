@@ -355,7 +355,7 @@ struct SettingsWindowView: View {
             }
 
         case .about:
-            settingsPanel(title: "AriaLite", symbol: "info.circle") {
+            settingsPanel(title: L10n.tr("下载器"), symbol: "info.circle") {
                 settingsRow(L10n.tr("软件版本"), detail: nil) {
                     Text(appVersion)
                         .foregroundStyle(.secondary)
@@ -375,7 +375,7 @@ struct SettingsWindowView: View {
                 }
 
                 settingsRow("GitHub", detail: nil) {
-                    Link("FateLightX/AriaLite", destination: ariaLiteRepositoryURL)
+                    Link("wangshe/AriaLite", destination: ariaLiteRepositoryURL)
                         .lineLimit(1)
                 }
 
@@ -392,7 +392,7 @@ struct SettingsWindowView: View {
     }
 
     private var ariaLiteRepositoryURL: URL {
-        URL(string: "https://github.com/FateLightX/AriaLite")!
+        URL(string: "https://github.com/wangshe/AriaLite")!
     }
 
     private var aria2WebsiteURL: URL {
