@@ -44,17 +44,17 @@ struct AriaLiteMenuBarView: View {
     @EnvironmentObject private var store: AppStore
 
     var body: some View {
-        Button(L10n.tr("显示 AriaLite")) {
+        Button(L10n.tr("显示下载器")) {
             showMainWindow()
         }
 
-        Button(L10n.tr("新建任务...")) {
+        Button(L10n.tr("新建任务")) {
             store.showAddTask = true
             showMainWindow()
         }
         .disabled(store.connectionState != .connected)
 
-        Button(L10n.tr("设置...")) {
+        Button(L10n.tr("设置")) {
             AppPresentation.showSettings(using: openSettings, store: store)
         }
 
@@ -95,7 +95,7 @@ struct AriaLiteMenuBarView: View {
 
         Divider()
 
-        Button(L10n.tr("退出 AriaLite")) {
+        Button(L10n.tr("退出下载器")) {
             NSApp.terminate(nil)
         }
     }
