@@ -1,6 +1,7 @@
 " 或 " = " or ";
 "下载器" = "Downloader";
 "远程协议" = "RPC";
+"远程协议密码" = "RPC Secret";
 "引擎版本" = "Aria2 Next Version";
 "GitHub 检查失败，正在尝试加速线路…" = "GitHub check failed. Trying an alternate route…";
 "HTTP 单服务器最大连接数" = "Maximum Connections per HTTP Server";
