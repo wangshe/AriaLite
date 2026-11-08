@@ -131,7 +131,7 @@ struct SettingsWindowView: View {
                     isOn: launchAtLoginBinding
                 )
                 if store.loginItemStatus == .requiresApproval {
-                    settingsRow(L10n.tr("系统批准"), detail: L10n.tr("macOS 需要确认后才能在登录时启动")) {
+                    settingsRow(L10n.tr("系统批准"), detail: L10n.tr("系统需要确认后才能在登录时启动")) {
                         Button(L10n.tr("打开登录项与扩展")) {
                             store.openLoginItemSettings()
                         }
@@ -146,7 +146,7 @@ struct SettingsWindowView: View {
 
                 toggleRow(L10n.tr("启动时进入菜单栏"), isOn: launchInMenuBarBinding)
                 toggleRow(L10n.tr("关闭主窗口后继续运行"), isOn: $store.settings.keepRunningAfterMainWindowClose)
-                toggleRow(L10n.tr("隐藏 Dock 图标"), isOn: hideDockIconBinding)
+                toggleRow(L10n.tr("隐藏程序坞图标"), isOn: hideDockIconBinding)
                     .disabled(!canRunInMenuBar)
                 Text(L10n.tr("开启后不出现在 Dock，主窗口与设置仍可打开。"))
                     .font(.caption)
