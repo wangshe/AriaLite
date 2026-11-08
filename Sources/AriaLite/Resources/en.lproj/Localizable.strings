@@ -177,7 +177,7 @@
 "调整搜索关键词或切换筛选项" = "Adjust the search terms or change the filter";
 "软件版本" = "Software Version";
 "这些操作会影响当前下载引擎状态" = "These actions affect the current download engine";
-"这会从 AriaLite 中移除选中的任务。已下载的文件默认会保留在磁盘上。" = "This removes the selected tasks from AriaLite. Downloaded files are kept on disk by default.";
+"这会从下载器中移除选中的任务。已下载的文件默认会保留在磁盘上。" = "This removes the selected tasks from AriaLite. Downloaded files are kept on disk by default.";
 "进度" = "Progress";
 "进度：{{0}}%" = "Progress: {{0}}%";
 "连接失败" = "Connection Failed";
