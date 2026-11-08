@@ -310,7 +310,7 @@ struct TaskRowActions: View {
                     .frame(width: 24, height: 22)
             }
             .buttonStyle(.borderless)
-            .help(L10n.tr("在 Finder 中显示"))
+            .help(L10n.tr("在访达中显示"))
 
             Button {
                 if let sourceLink = task.sourceLink {
