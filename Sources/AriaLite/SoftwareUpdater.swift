@@ -432,17 +432,17 @@ private enum UpdateError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .noStableRelease: L10n.tr("没有可用的稳定版本")
-        case let .missingAsset(name): L10n.tr("Release 缺少文件：\(name)")
+        case let .missingAsset(name): L10n.tr("发行缺少文件：\(name)")
         case .invalidResponse: L10n.tr("服务器响应无效")
         case .invalidManifest: L10n.tr("更新清单无效")
         case .invalidChecksumFile: L10n.tr("SHA256 校验文件无效")
         case .checksumMismatch: L10n.tr("下载文件的 SHA256 不匹配")
-        case .invalidApplication: L10n.tr("更新包中没有有效的 App")
+        case .invalidApplication: L10n.tr("更新包中没有有效的应用")
         case .bundleIdentifierMismatch: L10n.tr("更新包的应用标识不匹配")
         case .versionMismatch: L10n.tr("更新包的版本不匹配")
         case .architectureMismatch: L10n.tr("更新包不支持当前处理器")
         case let .commandFailed(command): L10n.tr("验证命令失败：\(command)")
-        case .notRunningFromApplication: L10n.tr("当前不是从 App 包运行，无法自动安装")
+        case .notRunningFromApplication: L10n.tr("当前不是从应用包运行，无法自动安装")
         case .installLocationNotWritable: L10n.tr("当前安装目录不可写，请手动更新")
         }
     }
