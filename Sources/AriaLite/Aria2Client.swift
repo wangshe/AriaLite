@@ -71,8 +71,8 @@ enum Aria2ClientError: Error, LocalizedError {
 
     var errorDescription: String? {
         switch self {
-        case .invalidHTTPStatus(let statusCode): L10n.tr("aria2 RPC HTTP 状态异常：\(statusCode)")
-        case .missingResult: L10n.tr("aria2 RPC 没有返回结果")
+        case .invalidHTTPStatus(let statusCode): L10n.tr("远程协议 HTTP 状态异常：\(statusCode)")
+        case .missingResult: L10n.tr("远程协议没有返回结果")
         }
     }
 }
