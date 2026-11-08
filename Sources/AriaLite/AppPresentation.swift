@@ -23,7 +23,7 @@ enum AppPresentation {
     }
 
     static func mainWindowDidAppear(store: AppStore) {
-        let mainWindow = NSApp.windows.first { $0.title == "AriaLite" }
+        let mainWindow = NSApp.windows.first { $0.title == L10n.tr("下载器") }
             ?? NSApp.windows.first(where: \.canBecomeMain)
         mainWindow?.isRestorable = false
 
