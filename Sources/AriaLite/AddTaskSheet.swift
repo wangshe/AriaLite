@@ -89,7 +89,7 @@ struct AddTaskSheet: View {
                     urlEditor
 
                     if hasInvalidURLInput {
-                        Label(L10n.tr("仅支持 http、https、ftp 和 magnet 链接。"), systemImage: "exclamationmark.triangle.fill")
+                        Label(L10n.tr("仅支持 http、https、ftp 和磁力链接。"), systemImage: "exclamationmark.triangle.fill")
                             .font(.caption)
                             .foregroundStyle(.red)
                     }
